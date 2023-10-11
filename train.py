@@ -59,7 +59,7 @@ if __name__ == '__main__':
             print(f'Epoch: {epoch}|{configs.num_epoch} || Seed: {SEED}')
             epoch_loss, epoch_acc = utils.train_epoch(model, train_dl, optimizer, train_mode, device)
             if train_mode in ['supervised', 'linear_prob', 'finetune']:
-                val_acc = utils.validate(model, test_dl, device)
+                val_acc = utils.validate(model, valid_dl, device)
                 if best_acc < val_acc:
                     print('Save best acc')
                     best_acc = val_acc
